@@ -1,8 +1,7 @@
 use ntex::web::{self, App, HttpResponse};
 
 #[web::get("/")]
-async fn index() -> HttpResponse {
-    
+async fn index() -> HttpResponse {    
     HttpResponse::Ok().body("Hello world!")
 }
 
@@ -19,8 +18,6 @@ async fn main() -> std::io::Result<()> {
     web::server(|| App::new().service((index, again)))
         .bind("0.0.0.0:8080")?
         .run()
-        .await;
-    
-    
+        .await
 
 }
